@@ -5,29 +5,53 @@ const ROLES = require('../constants/roles');
 const JWT_SECRET = process.env.JWT_SECRET || 'super-secret-key';
 
 exports.register = (req, res) => {
-  const { name, email, password } = req.body;
+  const { email, password, name } = req.body;
   const db = readDB();
 
-  if (!name || !email || !password) {
-    return res.status(400).json({ error: 'Nombre, correo y contraseña son obligatorios' });
-  }
-
+  // ¿ya existe ese correo?
   if (db.users.find(u => u.email === email)) {
     return res.status(400).json({ error: 'Correo ya registrado' });
   }
+
+  // decidir rol según correo y situación actual
+  const alreadyHasAdmin = db.users.some(u => u.role === ROLES.ADMIN);
+  let role = ROLES.USER;
+
+  // si aún no hay admin y se registra con este correo -> ADMIN
+  if (!alreadyHasAdmin && email === 'admin@municipio.gob') {
+    role = ROLES.ADMIN;
+  }
+  // responsable
+  else if (
+    email === 'responsable@municipio.gob' ||
+    email === 'resp@municipio.gob'
+  ) {
+    role = ROLES.RESPONSABLE;
+  }
+
+  // hashear contraseña
+  const hashed = bcrypt.hashSync(password, 10);
 
   const user = {
     id: Date.now(),
     name,
     email,
-    password, // texto plano para simplificar
-    role: ROLES.USER
+    password: hashed,
+    role
   };
 
   db.users.push(user);
   writeDB(db);
 
-  res.status(201).json({ message: 'Usuario registrado con éxito' });
+  res.json({
+    message: 'Usuario registrado',
+    user: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role
+    }
+  });
 };
 
 exports.login = (req, res) => {
