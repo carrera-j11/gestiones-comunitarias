@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin Municipal",
+      "email": "admin@municipio.gob",
+      "password": "$2a$10$G3bcvjl/5i7yPZr3cXZXEe8UdWq1u9UpxO/2R5jz9fC4yJQg3UskG",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "name": "Responsable de Espacios",
+      "email": "responsable@municipio.gob",
+      "password": "$2a$10$O4dJ8x9V6sV7Y4p6yZm1OuzZpLoNQocT5C4YgkZlN8a0XO7wJFYka",
+      "role": "RESPONSABLE"
+    },
+    {
+      "id": 3,
+      "name": "Ciudadano Ejemplo",
+      "email": "ciudadano@test.com",
+      "password": "$2a$10$T6GkBfU4hD7sV1yRk3XzbeU1d4QhN9YkL2m0P7cR8vKkYjMqYFDPS",
+      "role": "USER"
+    }
+  ],
+  "spaces": [],
+  "reservations": [],
+  "incidents": []
+}
