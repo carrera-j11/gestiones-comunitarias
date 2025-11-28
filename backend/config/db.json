@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Administrador",
+      "email": "admin@municipio.gob",
+      "password": "$2b$10$wZ8bFMvx6bMpiKFFitvolOL/GpNZgbf28pQ5e0siJmq9hw3rroWwm",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "name": "Responsable",
+      "email": "resp@municipio.gob",
+      "password": "$2b$10$YgLxgxYkWwaP42gnikIzeuM1tNn5ONeGSm7BbL7sxHGI7G2r02fFe",
+      "role": "RESPONSABLE"
+    }
+  ],
+  "spaces": [],
+  "reservations": [],
+  "incidents": []
+}
