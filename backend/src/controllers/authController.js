@@ -54,6 +54,7 @@ exports.register = (req, res) => {
   });
 };
 
+
 exports.login = (req, res) => {
   const { email, password } = req.body;
   const db = readDB();
