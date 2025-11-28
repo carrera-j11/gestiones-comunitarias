@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Administrador",
+      "email": "admin@municipio.gob",
+      "password": "admin123",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "name": "Responsable Municipal",
+      "email": "responsable@municipio.gob",
+      "password": "resp123",
+      "role": "RESPONSABLE"
+    },
+    {
+      "id": 3,
+      "name": "Ciudadano Ejemplo",
+      "email": "user@ciudadano.gob",
+      "password": "user123",
+      "role": "USER"
+    }
+  ],
+  "spaces": [],
+  "reservations": [],
+  "incidents": []
+}
